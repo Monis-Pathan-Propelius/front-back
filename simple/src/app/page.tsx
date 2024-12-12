@@ -24,7 +24,7 @@ export default function Home() {
     email_address: string;
   }) => {
     try {
-      const result = await fetch("http://localhost:3001/add-user", {
+      const result = await fetch(`${process.env.NEXT_PUBLIC_HOST}/add-user`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export default function Home() {
 
   const getdata = async () => {
     try {
-      const result = await fetch("http://localhost:3001/get-user");
+      const result = await fetch(`${process.env.NEXT_PUBLIC_HOST}/get-user`);
       const data = await result.json();
       setData(data);
       console.log(data);
